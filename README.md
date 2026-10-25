@@ -1,6 +1,6 @@
-# Practical 2 - Online Course Enrollment API
+# TPDS Module 3 - Practical 2 (M3_P2)
 
-An Express REST API using MySQL for students, courses, and course enrollments. It reports course capacity, prevents duplicate or over-capacity enrollment, supports cancellation, and uses an InnoDB transaction with a course-row lock to keep seat counts consistent.
+An Express REST API using MySQL for students, courses, and course enrollments. This project is stored in the `M3_P2` folder. It reports course capacity, prevents duplicate or over-capacity enrollment, supports cancellation, and uses an InnoDB transaction with a course-row lock to keep seat counts consistent.
 
 ## Requirements
 
@@ -10,7 +10,7 @@ An Express REST API using MySQL for students, courses, and course enrollments. I
 ## Setup
 
 1. Run `database/schema.sql` in MySQL Workbench or the MySQL command line. It creates the `course_enrollment` database and tables, then adds two sample students and courses.
-2. Copy `.env.example` to `.env` and set `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DATABASE`, `MYSQL_USER`, and `MYSQL_PASSWORD` for your MySQL server.
+2. Copy `.env.example` to `.env` and set `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DATABASE`, `MYSQL_USER`, and `MYSQL_PASSWORD` for your MySQL server. The local `.env` file is ignored by Git; keep your database password there.
 3. Install packages with `npm install`.
 4. Start with `npm start` (or `npm run dev` during development).
 5. Check `GET http://localhost:3000/health` for `{"status":"ok","database":"connected"}`.
@@ -33,7 +33,7 @@ An Express REST API using MySQL for students, courses, and course enrollments. I
 Create a student:
 
 ```json
-{ "name": "Aarav Mehta", "email": "aarav@example.edu" }
+{ "name": "Shubham Jha", "email": "shubham@example.edu" }
 ```
 
 Create a course:
