@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "4d80d1e7-e3a5-4fe3-9816-9df3e93799d2",
+    "name": "Online Course Enrollment API",
+    "description": "Requests for TPDS Practical 2. Create the sample records with database/schema.sql in MySQL first.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "studentId",
+      "value": "1"
+    },
+    {
+      "key": "courseId",
+      "value": "1"
+    },
+    {
+      "key": "enrollmentId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "List students",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "Create student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Rahul Singh\",\n  \"email\": \"rahul@example.edu\"\n}"
+        },
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "List courses and remaining seats",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "Create course",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"WEB301\",\n  \"title\": \"Web Application Development\",\n  \"description\": \"Build modern web applications.\",\n  \"capacity\": 25\n}"
+        },
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "Enroll student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"student_id\": {{studentId}},\n  \"course_id\": {{courseId}}\n}"
+        },
+        "url": "{{baseUrl}}/api/enrollments"
+      }
+    },
+    {
+      "name": "List a student's courses",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/students/{{studentId}}/enrollments"
+      }
+    },
+    {
+      "name": "Cancel enrollment",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/enrollments/{{enrollmentId}}"
+      }
+    }
+  ]
+}
